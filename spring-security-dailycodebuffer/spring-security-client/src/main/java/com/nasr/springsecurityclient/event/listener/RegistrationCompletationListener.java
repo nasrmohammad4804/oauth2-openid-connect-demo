@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Component
 @Slf4j
-public class RegisterationCompletationListener {
+public class RegistrationCompletationListener {
 
     @Autowired
     private TokenVerificationService tokenService;
@@ -24,15 +24,13 @@ public class RegisterationCompletationListener {
 
     @EventListener
     public void sendEmail(RegistrationComplitationEvent event) {
-        //create verification token for link
-        //send email
 
         User user = event.getUser();
         String token = UUID.randomUUID().toString();
         tokenService.save(new TokenVerification(token, user));
         StringBuilder url = new StringBuilder(event.getUrl());
         url.append("?token=").append(token);
-        log.info("send email with link {}",url);
+        log.info("send email with link {}", url);
         emailService.sendEmail(event.getUser().getEmail(), url.toString());
 
     }

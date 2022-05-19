@@ -51,18 +51,17 @@
             <scope>test</scope>
         </dependency>
 
-        <!--  spring oauth2 authorization server dependency -->
-       <!-- <dependency>
-            <groupId>com.nasr</groupId>
-            <artifactId>spring-security-client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>-->
-
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-authorization-server</artifactId>
             <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
+            <version>3.1.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
